@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import {
   Users,
   Student,
-  PencilSimple,
-  VideoCamera,
   Heart,
   Calendar,
 } from "@phosphor-icons/react";

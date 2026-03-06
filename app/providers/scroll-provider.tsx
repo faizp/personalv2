@@ -86,7 +86,7 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
 
     container.addEventListener("scroll", handleScroll, { passive: true });
     return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [scrollY]);
 
   // Handle initial hash on load
   useEffect(() => {

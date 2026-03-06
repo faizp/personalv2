@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import {
   motion,
   AnimatePresence,
@@ -339,10 +340,11 @@ function ProjectCard({
         className={`relative flex-[3] min-h-0 flex items-center justify-center bg-gradient-to-br ${project.gradient}`}
       >
         {project.image ? (
-          <img
+          <Image
             src={project.image}
             alt={project.title}
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
         ) : (
           <>
