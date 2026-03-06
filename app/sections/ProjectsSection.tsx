@@ -237,9 +237,9 @@ export default function ProjectsSection() {
                   href={active.link || active.github || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block h-[440px]"
+                  className="block"
                 >
-                  <ProjectCard project={active} isActive />
+                  <ProjectCard project={active} isActive autoHeight />
                 </a>
               </motion.div>
             </AnimatePresence>
@@ -323,21 +323,23 @@ export default function ProjectsSection() {
 function ProjectCard({
   project,
   isActive,
+  autoHeight = false,
 }: {
   project: Project;
   isActive: boolean;
+  autoHeight?: boolean;
 }) {
   return (
     <div
-      className={`h-full rounded-2xl border overflow-hidden flex flex-col ${
+      className={`${autoHeight ? "" : "h-full"} rounded-2xl border overflow-hidden flex flex-col ${
         isActive
           ? "border-border shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.4)]"
           : "border-border/60 shadow-none"
       }`}
     >
-      {/* Visual — 60% */}
+      {/* Visual */}
       <div
-        className={`relative flex-[3] min-h-0 flex items-center justify-center bg-gradient-to-br ${project.gradient}`}
+        className={`relative flex items-center justify-center bg-gradient-to-br ${project.gradient} ${autoHeight ? "h-[220px]" : "flex-[3] min-h-0"}`}
       >
         {project.image ? (
           <Image
@@ -371,8 +373,8 @@ function ProjectCard({
         )}
       </div>
 
-      {/* Content — 40% */}
-      <div className="flex-[2] min-h-0 bg-card p-6 flex flex-col justify-center">
+      {/* Content */}
+      <div className={`bg-card p-6 flex flex-col ${autoHeight ? "" : "flex-[2] min-h-0 justify-center"}`}>
         <h3 className="font-display text-lg font-semibold text-foreground mb-1 tracking-tight">
           {project.title}
         </h3>
