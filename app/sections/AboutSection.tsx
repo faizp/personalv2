@@ -2,10 +2,9 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "@phosphor-icons/react";
-import { Reveal, StaggerContainer, StaggerItem } from "../components/ui/Reveal";
-import { SpotlightCard } from "../components/ui/SpotlightCard";
+import { Reveal } from "../components/ui/Reveal";
 import { useScroll } from "../providers/scroll-provider";
-import { values, journey } from "../data/about";
+import { journey } from "../data/about";
 
 export default function AboutSection() {
   const { scrollToSection } = useScroll();
@@ -59,45 +58,6 @@ export default function AboutSection() {
           </Reveal>
 
         </div>
-      </div>
-
-      {/* Values Section */}
-      <div className="max-w-[900px] mx-auto px-6 lg:px-8 mb-32">
-        <Reveal className="text-center mb-16">
-          <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
-            Philosophy
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight text-foreground mt-4">
-            What Drives Me
-          </h2>
-        </Reveal>
-
-        <StaggerContainer
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          staggerDelay={0.1}
-        >
-          {values.map((value) => (
-            <StaggerItem key={value.title}>
-              <SpotlightCard className="h-full">
-                <div className="p-8 bg-card rounded-xl border border-border h-full card-premium">
-                  <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-6">
-                    <value.icon
-                      size={24}
-                      weight="regular"
-                      className="text-muted-foreground"
-                    />
-                  </div>
-                  <h3 className="text-xl font-display font-semibold text-foreground mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              </SpotlightCard>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
       </div>
 
       {/* Journey Timeline */}

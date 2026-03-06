@@ -32,11 +32,11 @@ export interface Metric {
 
 export const experiences: Experience[] = [
   {
-    role: "Software Engineer",
+    role: "Senior Software Engineer",
     company: "Tessact Pvt Ltd",
     location: "Bengaluru (On-site)",
     period: "August 2021 – Present",
-    duration: "3.8+ years",
+    duration: "4.8+ years",
     type: "Full-time",
     description:
       "Built an AI-powered platform from scratch at an early-stage startup, now powering daily operations at a leading Indian entertainment group.",
@@ -106,8 +106,6 @@ export const experiences: Experience[] = [
 ];
 
 export const metrics: Metric[] = [
-  { label: "Years Experience", value: "3.8+" },
+  { label: "Years Experience", value: "4.8+" },
   { label: "Companies", value: "2" },
-  { label: "Projects Led", value: "10+" },
-  { label: "Team Members Mentored", value: "5+" },
 ];

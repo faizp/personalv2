@@ -78,17 +78,19 @@ export default function CommunitySection() {
                     {education.location}
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
-                    {education.achievements.map((achievement, i) => (
-                      <span
-                        key={i}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-xs text-muted-foreground"
-                      >
-                        <Trophy size={12} />
-                        {achievement}
-                      </span>
-                    ))}
-                  </div>
+                  {education.achievements.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {education.achievements.map((achievement, i) => (
+                        <span
+                          key={i}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-xs text-muted-foreground"
+                        >
+                          <Trophy size={12} />
+                          {achievement}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -195,7 +197,7 @@ export default function CommunitySection() {
         </Reveal>
 
         <StaggerContainer
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="grid grid-cols-2 gap-4 max-w-md mx-auto"
           staggerDelay={0.1}
         >
           <StaggerItem>
@@ -217,35 +219,11 @@ export default function CommunitySection() {
               whileHover={{ y: -4 }}
             >
               <p className="text-4xl font-display font-semibold text-foreground mb-1">
-                50+
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Workshops Conducted
-              </p>
-            </motion.div>
-          </StaggerItem>
-          <StaggerItem>
-            <motion.div
-              className="p-6 bg-card rounded-xl border border-border text-center card-premium"
-              whileHover={{ y: -4 }}
-            >
-              <p className="text-4xl font-display font-semibold text-foreground mb-1">
                 6+
               </p>
               <p className="text-sm text-muted-foreground">
                 Years Volunteering
               </p>
-            </motion.div>
-          </StaggerItem>
-          <StaggerItem>
-            <motion.div
-              className="p-6 bg-card rounded-xl border border-border text-center card-premium"
-              whileHover={{ y: -4 }}
-            >
-              <p className="text-4xl font-display font-semibold text-foreground mb-1">
-                1000s
-              </p>
-              <p className="text-sm text-muted-foreground">Lives Impacted</p>
             </motion.div>
           </StaggerItem>
         </StaggerContainer>

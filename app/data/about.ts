@@ -66,6 +66,12 @@ export const journey: JourneyItem[] = [
       "Expanded into ML ops, deploying models on SageMaker and Vertex AI for content moderation.",
   },
   {
+    year: "2025",
+    title: "Platform Maturity",
+    description:
+      "Scaled the platform to handle enterprise workloads, hardened security, and optimized cost efficiency across infrastructure.",
+  },
+  {
     year: "2026",
     title: "Senior Software Engineer",
     description:

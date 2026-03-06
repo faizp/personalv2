@@ -31,7 +31,7 @@ export default function ExperienceSection() {
       {/* Metrics */}
       <div className="max-w-[900px] mx-auto px-6 lg:px-8 mb-20">
         <StaggerContainer
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="grid grid-cols-2 gap-4 max-w-md mx-auto"
           staggerDelay={0.1}
         >
           {metrics.map((metric) => (

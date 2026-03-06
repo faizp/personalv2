@@ -63,9 +63,5 @@ export const education: Education = {
   university: "Calicut University",
   location: "Malappuram, India",
   period: "June 2017 – March 2020",
-  achievements: [
-    "Graduated with honors",
-    "Active member of Computer Science Association",
-    "Participated in various technical workshops",
-  ],
+  achievements: [],
 };
