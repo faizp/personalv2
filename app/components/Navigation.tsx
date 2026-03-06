@@ -13,17 +13,23 @@ export function Navigation() {
   const { theme, toggleTheme, mounted } = useTheme();
   const { activeSection, scrollToSection, isScrolled, scrollY } = useScroll();
 
-  // Phase 1: Letters "a","i","z","." merge toward "f" (150–900px)
-  const mergeOpacity = useTransform(scrollY, [150, 850], [1, 0]);
+  // Clamped lerp helper for opacity values
+  const clampLerp = (v: number, inMin: number, inMax: number, outMin: number, outMax: number) => {
+    const t = Math.min(1, Math.max(0, (v - inMin) / (inMax - inMin)));
+    return outMin + t * (outMax - outMin);
+  };
+
+  // Phase 1: Letters "a","i","z","." merge toward "F" (150–900px)
+  const mergeOpacity = useTransform(scrollY, (v) => clampLerp(v, 150, 850, 1, 0));
   const aX = useTransform(scrollY, [150, 900], [0, -10]);
   const iX = useTransform(scrollY, [150, 900], [0, -22]);
   const zX = useTransform(scrollY, [150, 900], [0, -32]);
   const dotX = useTransform(scrollY, [150, 900], [0, -42]);
-  const dotOpacity = useTransform(scrollY, [150, 750], [1, 0]);
+  const dotOpacity = useTransform(scrollY, (v) => clampLerp(v, 150, 750, 1, 0));
 
-  // Phase 2: "f" crossfades to "F" (800–1200px)
-  const lowercaseOpacity = useTransform(scrollY, [800, 1200], [1, 0]);
-  const uppercaseOpacity = useTransform(scrollY, [800, 1200], [0, 1]);
+  // Phase 2: "F" crossfades to italic "F" (800–1200px)
+  const lowercaseOpacity = useTransform(scrollY, (v) => clampLerp(v, 800, 1200, 1, 0));
+  const uppercaseOpacity = useTransform(scrollY, (v) => clampLerp(v, 800, 1200, 0, 1));
 
   // Phase 3: "F" becomes italic (1100–1600px)
   const italicSkew = useTransform(scrollY, [1100, 1600], [0, -12]);
@@ -57,8 +63,8 @@ export function Navigation() {
               <span className="text-2xl font-display font-semibold tracking-tight text-foreground inline-flex items-baseline">
                 {/* f / F crossfade */}
                 <span className="relative inline-flex">
-                  <motion.span style={{ opacity: lowercaseOpacity }}>
-                    f
+                  <motion.span style={{ opacity: lowercaseOpacity, fontFamily: "var(--font-exo2)" }}>
+                    F
                   </motion.span>
                   <motion.span
                     className="absolute left-0 top-0 origin-left italic"

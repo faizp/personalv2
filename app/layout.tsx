@@ -25,7 +25,7 @@ const exo2 = Exo_2({
   variable: "--font-exo2",
   subsets: ["latin"],
   weight: ["600"],
-  style: ["italic"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
