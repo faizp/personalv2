@@ -237,7 +237,7 @@ export default function ProjectsSection() {
                   href={active.link || active.github || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block"
+                  className="block h-[440px]"
                 >
                   <ProjectCard project={active} isActive />
                 </a>
